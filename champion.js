@@ -74,4 +74,4 @@ const LEAGUEVAR = {
     }
 
     champions.init();
-})();
+});
