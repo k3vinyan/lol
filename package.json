@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/www server.js"
+    "start": "nodemon ./bin/www server.js",
+    "sass": "node_modules/.bin/node-sass --watch input.scss styles.css"
   },
   "author": "",
   "license": "ISC",
