@@ -1,5 +1,5 @@
 import { Element, PlayerElement } from './helpers.js';
-import {firstCol, secondCol, thirdCol } from './layout.js';
+import {firstCol, thirdCol, secondCol } from './layout.js';
 
 
 function Player(playerName){
@@ -7,11 +7,13 @@ function Player(playerName){
     const ssWrapper = new Element('div', 'ss-wrapper')
     const ss1 = new Element('div', 'ss', 'ss-1')
     const ss2 = new Element('div', 'ss', 'ss-2')
+    const bg  = new Element('div', 'bg-image') 
 
-    const playerSelection = new PlayerElement('div', 'player', 'player-1', playerName, ss1, ss2);
+    const playerSelection = new PlayerElement('div', 'player', playerName, ss1, ss2, bg);
 
     this.ss1 = ss1;
     this.ss2 = ss2;
+    this.bg = bg;
     this.playerSelection = playerSelection;
 
     this.el = playerSelection.el;
@@ -42,11 +44,14 @@ function Team(n1, n2, n3, n4, n5) {
     this.el = teamEl.el;
 }
 
+///testinnnnnnnnnnnnnngggggggggggg
 const blueTeam = new Team("cat", "dog", "monkey", "elephant", "mouse")
+const redTeam = new Team("dance", "like", "mj", "momma", "mia")
 
 console.log(blueTeam.el)
 
 firstCol.addChild(blueTeam.el)
+thirdCol.addChild(redTeam.el)
 
 
 

@@ -22,16 +22,18 @@ Element.prototype.addChild = function(child) {
     this.children.push(child)
 }
 
-function PlayerElement(type, className, id, playerName, ss1, ss2) {
+function PlayerElement(type, className, playerName, ss1, ss2, bg) {
 
-    Element.call(this, type, className, id);
+    Element.call(this, type, className);
 
     this.el.appendChild(ss1.el);
-    this.el.appendChild(ss2.el);  
+    this.el.appendChild(ss2.el);
+    this.el.appendChild(bg.el);  
 
     this.playerName = playerName;
     this.ss1 = ss1;
     this.ss2 = ss2;
+    this.bg = bg;
 
 }
 

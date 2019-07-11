@@ -1,11 +1,14 @@
 import { Element } from './helpers.js';
 
-const firstCol  = new Element('div', 'col', 'blue-team');
-const secondCol = new Element('div', 'col', 'player-select');
-const thirdCol  = new Element('div', 'col', 'red-team');
+
+const header    = new Element('div', 'header');
+const firstCol  = new Element('div', 'col', 'left-section');
+const secondCol = new Element('div', 'col', 'mid-section');
+const thirdCol  = new Element('div', 'col', 'right-section');
 
 const app = document.getElementById("app");
 
+app.appendChild(header.el);
 app.appendChild(firstCol.el);
 app.appendChild(secondCol.el);
 app.appendChild(thirdCol.el);
