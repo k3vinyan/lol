@@ -13,6 +13,6 @@ app.appendChild(firstCol.el);
 app.appendChild(secondCol.el);
 app.appendChild(thirdCol.el);
 
-export {firstCol, secondCol, thirdCol };
+export {header, firstCol, secondCol, thirdCol };
 
 

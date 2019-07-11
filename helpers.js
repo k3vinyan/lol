@@ -14,7 +14,7 @@ function Element(type, className, id) {
 
 Element.prototype.addChild = function(child) {
 
-    this.el.appendChild(child)
+    this.el.appendChild(child.el)
 
     if(this.children === undefined) {
         this.children = [];
@@ -26,9 +26,9 @@ function PlayerElement(type, className, playerName, ss1, ss2, bg) {
 
     Element.call(this, type, className);
 
-    this.el.appendChild(ss1.el);
-    this.el.appendChild(ss2.el);
-    this.el.appendChild(bg.el);  
+    this.el.appendChild(ss1);
+    this.el.appendChild(ss2);
+    this.el.appendChild(bg);  
 
     this.playerName = playerName;
     this.ss1 = ss1;

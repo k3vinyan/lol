@@ -2,7 +2,7 @@ import { Element, PlayerElement } from './helpers.js';
 import {firstCol, thirdCol, secondCol } from './layout.js';
 
 
-function Player(playerName){
+function Player(playerName) {
 
     const ssWrapper = new Element('div', 'ss-wrapper')
     const ss1 = new Element('div', 'ss', 'ss-1')
@@ -38,20 +38,12 @@ function Team(n1, n2, n3, n4, n5) {
     const teamEl = new Element('div', 'team-wrapper')
     
     for(let player in this) {
-        teamEl.addChild(this[player].el)
+        teamEl.addChild(this[player])
     }
 
     this.el = teamEl.el;
 }
 
-///testinnnnnnnnnnnnnngggggggggggg
-const blueTeam = new Team("cat", "dog", "monkey", "elephant", "mouse")
-const redTeam = new Team("dance", "like", "mj", "momma", "mia")
-
-console.log(blueTeam.el)
-
-firstCol.addChild(blueTeam.el)
-thirdCol.addChild(redTeam.el)
 
 
 
