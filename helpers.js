@@ -1,3 +1,5 @@
+import  { CONSTANTS } from './constants.js';
+
 function Element(type, className, id) {
     const el = document.createElement(type);
 
@@ -37,4 +39,34 @@ function PlayerElement(type, className, playerName, ss1, ss2, bg) {
 
 }
 
-export { Element, PlayerElement }
+function ChampionElement(type, className, id) {
+    
+    Element.call(this, type, className, id);
+
+}
+
+ChampionElement.prototype = Object.create(Element.prototype);
+ChampionElement.prototype.constructor = ChampionElement;
+
+ChampionElement.prototype.addChampionData = function(data) {
+    
+    const img = new Element('img', 'champion-img');
+    const p = new Element('p', 'champion-para');
+
+
+    img.el.src = CONSTANTS.IMGURL + data.image.full;
+    p.el.innerHTML = data.name;
+
+    this.el.appendChild(img.el);
+    this.el.appendChild(p.el);
+}
+
+ChampionElement.prototype.getChampionData = function() {
+
+    return this.data;
+}
+
+
+
+
+export { Element, PlayerElement, ChampionElement }

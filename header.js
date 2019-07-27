@@ -10,5 +10,3 @@ header.addChild(midSection);
 header.addChild(rightSection);
 
 
-
-console.log(header.el)
