@@ -24,19 +24,25 @@ Element.prototype.addChild = function(child) {
     this.children.push(child)
 }
 
-function PlayerElement(type, className, playerName, ss1, ss2, bg) {
+function PlayerElement(type, className, id) {
 
-    Element.call(this, type, className);
+    Element.call(this, type, className, id);
 
-    this.el.appendChild(ss1);
-    this.el.appendChild(ss2);
-    this.el.appendChild(bg);  
+}
 
-    this.playerName = playerName;
-    this.ss1 = ss1;
-    this.ss2 = ss2;
-    this.bg = bg;
+PlayerElement.prototype = Object.create(Element.prototype);
+PlayerElement.prototype.constructor = PlayerElement;
 
+PlayerElement.prototype.addPlayerData = function(data) {
+    
+    const img = new Element('img', 'player-img');
+    const p = new Element('p', 'player-para');
+
+    img.el.src = data.img;
+    p.el.innerHTML = data.name;
+
+    this.el.appendChild(img.el);
+    this.el.appendChild(img.el);
 }
 
 function ChampionElement(type, className, id) {
