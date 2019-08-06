@@ -13,6 +13,8 @@ div {
   grid-template-columns: 3fr 5fr 3fr;
   grid-template-rows: 1fr repeat(7, 1fr);
   background: url("images/URFBackground.png"); }
+  #app .champions-wrapper {
+    height: 85%; }
   #app .header {
     grid-column: 1/4;
     grid-row: 1/2; }

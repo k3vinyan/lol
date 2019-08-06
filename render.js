@@ -22,11 +22,6 @@ players.then( players => {
 })
 
 
-
-
-
-
-
 //Adding Data/element to secondCol
 champions.then( champs => {
     
