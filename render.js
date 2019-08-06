@@ -1,16 +1,10 @@
-import {header, firstCol, thirdCol } from './layout.js';
+import {header, thirdCol } from './layout.js';
 import { secondCol } from './components/championsBoard.js';
-
-import { getPlayersApi } from './championsapi.js';
+import { firstCol } from './components/playersBoard.js';
 
 import { PlayerElement } from './helpers/helpers.js';
 
-//need to dynamic add id 
-// players.then( players => {
-//     const player = new PlayerElement('div', 'player', 'player-1');
-//     player.addPlayerData(players);
-//     firstCol.addChild(player);
-// })
+
 
 //append to DOM
 app.appendChild(header.el);

@@ -1,7 +1,7 @@
 const CONSTANTS = {
-    CHAMPIONJSON: './champion.json',
+    CHAMPIONJSON: './json/champion.json',
     IMGURL: "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/",
-    PLAYERJSON: './playersdata.json'
+    PLAYERJSON: './json/playersdata.json'
 }
 
 export { CONSTANTS };
