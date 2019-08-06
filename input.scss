@@ -47,6 +47,11 @@ div {
     #mid-section {
         grid-column: 2/3;
         grid-row: 2/9;
+
+        .lockin-wrapper {
+            display: flex;
+            justify-content: center;
+        }
     }
 
     #right-section {

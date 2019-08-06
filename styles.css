@@ -31,6 +31,9 @@ div {
   #app #mid-section {
     grid-column: 2/3;
     grid-row: 2/9; }
+    #app #mid-section .lockin-wrapper {
+      display: flex;
+      justify-content: center; }
   #app #right-section {
     grid-column: 3/4;
     grid-row: 2/9; }

@@ -1,4 +1,4 @@
-import  { CONSTANTS } from './constants.js';
+import  { CONSTANTS } from '../constants.js';
 
 function Element(type, className, id) {
     const el = document.createElement(type);

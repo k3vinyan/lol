@@ -1,5 +1,5 @@
 import { Element } from './helpers.js';
-import { header } from './layout.js';
+import { header } from '../layout.js';
 
 const leftSection = new Element('div', 'col', 'left-header');
 const midSection = new Element('div', 'col', 'mid-header');

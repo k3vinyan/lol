@@ -1,5 +1,5 @@
-import { Element } from './helpers.js';
-import { firstCol } from './layout.js';
+import { Element } from '../helpers/helpers.js/index.js';
+import { firstCol } from '../layout.js';
 
 function Chatbox() {
 

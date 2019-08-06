@@ -1,5 +1,4 @@
-import { Element } from './helpers.js';
-
+import { Element } from './helpers/helpers.js';
 
 const header    = new Element('div', 'header');
 const firstCol  = new Element('div', 'col', 'left-section');
