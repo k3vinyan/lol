@@ -4,10 +4,9 @@ import { getChampionsApi } from '../api.js';
 
 const champions = getChampionsApi();
 
-
 //make class component for lockin?
 const lockin = new Element('div', 'lockin-wrapper');
-const button = new Element('button', 'lockin-button');
+const button = new Element('button', 'button', 'lockin-button');
 button.el.innerHTML = 'LOCK IN';
 lockin.addChild(button);
 

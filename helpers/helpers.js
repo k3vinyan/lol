@@ -58,9 +58,7 @@ ChampionElement.prototype.addChampionData = function(data) {
     
     const img = new Element('img', 'champion-img');
     const p = new Element('p', 'champion-para');
-
-
-    img.el.src = CONSTANTS.IMGURL + data.image.full;
+    img.el.src = CONSTANTS.URL.IMG + data.image.full;
     p.el.innerHTML = data.name;
 
     this.el.appendChild(img.el);

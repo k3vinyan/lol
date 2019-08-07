@@ -1,8 +1,8 @@
 import { CONSTANTS } from './constants.js';
 
 function getChampionsApi()  {
-    const url = CONSTANTS.CHAMPIONJSON;
-
+    const url = CONSTANTS.JSON.CHAMPIONJSON;
+ 
     return fetch(url)
         .then(function(response) {
             return response.json()
@@ -17,8 +17,12 @@ function getChampionsApi()  {
         })
 }
 
+function getChampionSlash() {
+    
+}
+
 function getPlayersApi() {
-    const url = CONSTANTS.PLAYERJSON;
+    const url = CONSTANTS.JSON.PLAYERJSON;
 
     return fetch(url)
         .then(function(response) {

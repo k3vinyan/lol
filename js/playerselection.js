@@ -3,22 +3,30 @@ import { CONSTANTS } from '../constants.js';
 
 const champions = getChampionsApi();
 const mid = document.getElementById("mid-section");
+const lockinButton = document.getElementById("lockin-button");
 
 mid.addEventListener('click', (el)=> {
     
-    const champName = el.target.parentNode.id;
-   
-    const player = document.getElementById("player-1");
-    console.dir(player.firstChild);
+    console.dir(el.target)
 
-    champions.then( response => {
-        const champions = response;
-        
-        const champ = champions[champName]
-        console.log(champions)
-        console.log(champName)
-        const imgurl = CONSTANTS.IMGURL + champ.image.full;
-        player.firstChild.src = imgurl;
-    })
+    //champion selection
+    if(el.target.className === "champion-img") {
+        const champName = el.target.parentNode.id;
+        const player = document.getElementById("player-1");
+    
+        champions.then( response => {
+            const champions = response;
+            
+            const champ = champions[champName]
+            const imgurl = CONSTANTS.IMGURL + champ.image.full;
+            player.firstChild.src = imgurl;
+        })
+    }
 
+    //lockin button
+    if(el.target.className == "button") {
+        mid.innerHTML = "dog"
+    }
+    
 })
+
