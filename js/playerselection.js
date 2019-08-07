@@ -3,7 +3,7 @@ import { CONSTANTS } from '../constants.js';
 import { SkinElement, getChampionSplashUrl } from '../helpers/helpers.js';
 
 //const champions = getChampionsApi();
-const mid = document.getElementById("mid-section");
+const mid = document.getElementById("champion-layout");
 
 
 mid.addEventListener('click', (el)=> {

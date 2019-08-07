@@ -1,8 +1,6 @@
-import { secondCol } from '../layout.js';
+import { championLayout } from '../layout.js';
 import { Element, ChampionElement } from '../helpers/helpers.js';
 import { allChampions } from '../api.js';
-
-//const champions = getChampionsApi();
 
 //make class component for lockin?
 const lockin = new Element('div', 'lockin-wrapper');
@@ -22,9 +20,9 @@ allChampions.then( response => {
         champsWrapper.addChild(champContainer);
     }
 
-    secondCol.addChild(champsWrapper);
-    secondCol.addChild(lockin)
+    championLayout.addChild(champsWrapper);
+    championLayout.addChild(lockin)
 })
 
 
-export { secondCol };
+export { championLayout };

@@ -1,6 +1,6 @@
-import {header, thirdCol } from './layout.js';
-import { secondCol } from './components/championsBoard.js';
-import { firstCol } from './components/playersBoard.js';
+import {header, rightLayout } from './layout.js';
+import { championLayout } from './components/championsBoard.js';
+import { leftLayout } from './components/playersBoard.js';
 
 import { PlayerElement } from './helpers/helpers.js';
 
@@ -8,6 +8,6 @@ import { PlayerElement } from './helpers/helpers.js';
 
 //append to DOM
 app.appendChild(header.el);
-app.appendChild(firstCol.el);
-app.appendChild(secondCol.el);
-app.appendChild(thirdCol.el);
+app.appendChild(leftLayout.el);
+app.appendChild(championLayout.el);
+app.appendChild(rightLayout.el);

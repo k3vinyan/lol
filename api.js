@@ -41,12 +41,6 @@ function getChampionSkinCount() {
         })
 }
 
-
-function getChampionSplashUrl(champ, count) {
-    let url = CONSTANTS.URL.SPLASH + champ + "_" + count + ".jpg";
-    return url;
-
-}
 const allChampions = getChampionsApi();
 const allPlayers   = getPlayersApi();
 const allskinsCount = getChampionSkinCount();
