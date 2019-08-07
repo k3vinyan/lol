@@ -17,12 +17,6 @@ function getChampionsApi()  {
         })
 }
 
-function getChampionSplashUrl(champ, count) {
-    let url = CONSTANTS.URL.SPLASH + champ + "_" + count + ".jpg";
-    return url;
-
-}
-
 function getPlayersApi() {
     const url = CONSTANTS.JSON.PLAYERJSON;
 
@@ -35,8 +29,27 @@ function getPlayersApi() {
         })
 }
 
+function getChampionSkinCount() {
+    const json = CONSTANTS.JSON.CHAMPIONSKINCOUNTJSON;
+
+    return fetch(json)
+        .then(function(response) {
+            return response.json()
+        })
+        .catch(function(error) {
+            console.log("Error in Skin Count: ", error)
+        })
+}
+
+
+function getChampionSplashUrl(champ, count) {
+    let url = CONSTANTS.URL.SPLASH + champ + "_" + count + ".jpg";
+    return url;
+
+}
 const allChampions = getChampionsApi();
 const allPlayers   = getPlayersApi();
+const allskinsCount = getChampionSkinCount();
 
-export { allChampions, allPlayers }
+export { allChampions, allPlayers, allskinsCount }
 

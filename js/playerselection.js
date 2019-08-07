@@ -1,18 +1,20 @@
-import { allChampions } from '../api.js';
+import { allChampions, allskinsCount } from '../api.js';
 import { CONSTANTS } from '../constants.js';
+import { SkinElement, getChampionSplashUrl } from '../helpers/helpers.js';
 
 //const champions = getChampionsApi();
 const mid = document.getElementById("mid-section");
-const lockinButton = document.getElementById("lockin-button");
 
-console.log(mid)
 
 mid.addEventListener('click', (el)=> {
+    el.preventDefault();
+    console.dir(el.target)
 
-    //champion selection
     if(el.target.className === "champion-img") {
         const champName = el.target.parentNode.id;
         const player = document.getElementById("player-1");
+        let champ = el.target.parentNode.id;
+        localStorage.setItem('selected', champ);
     
         allChampions.then( response => {
             const champions = response;
@@ -24,9 +26,23 @@ mid.addEventListener('click', (el)=> {
     }
 
     //lockin button
-    if(el.target.className == "button") {
-        
+    if(el.target.className === "button") {
+        let champ = localStorage.getItem('selected');
+
+        allskinsCount.then(function(response) {
+            let skincount = parseInt(response[champ]) + 1;
+            mid.innerHTML = "";
+            for(let i = 0; i < skincount; i++) {
+                let url = getChampionSplashUrl(champ, i);
+                let div = new SkinElement('div', 'skin', url);
+                console.log(div)
+                mid.appendChild(div.el)
+            }
+
+        })
     }
     
 })
+
+
 
