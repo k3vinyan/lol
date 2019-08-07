@@ -18,7 +18,7 @@ mid.addEventListener('click', (el)=> {
             const champions = response;
             
             const champ = champions[champName]
-            const imgurl = CONSTANTS.IMGURL + champ.image.full;
+            const imgurl = CONSTANTS.URL.IMG + champ.image.full;
             player.firstChild.src = imgurl;
         })
     }
