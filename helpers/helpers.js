@@ -71,24 +71,4 @@ ChampionElement.prototype.getChampionData = function() {
 }
 
 
-//convert name to match championAPI fixed later 
-// function convertName(champion) {
-//     let c = champion;
-//     if(c != "JarvanIV") {
-//         c = c.replace(/[\.'\s]/g, "")
-//     }
-
-//     if(c === "ChoGath") {
-//         c = c.charAt(0) + c.slice(1).toLowerCase();
-//     }
-//     console.log(c)
-//     return c;
-// }
-
-function convertKey(key) {
-    let k = key.replace(/[\.'\s]/g, "").toLowerCase();
-    return k;
-}
-
-
-export { Element, PlayerElement, ChampionElement, convertKey }
+export { Element, PlayerElement, ChampionElement }

@@ -1,4 +1,4 @@
-import { CONSTANTS } from './constants.js';
+import { CONSTANTS } from '../constants.js';
 
 function getChampionsApi()  {
     const url = CONSTANTS.CHAMPIONJSON;
@@ -25,6 +25,7 @@ function getChampionsApi()  {
 }
 
 
+
 function getPlayersApi() {
     const url = CONSTANTS.PLAYERJSON;
     const promise = new Promise( function(resolve, reject) {
@@ -47,5 +48,7 @@ function getPlayersApi() {
 
     return promise;
 }
+
+
 
 export { getChampionsApi, getPlayersApi };

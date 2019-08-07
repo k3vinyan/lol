@@ -5,7 +5,8 @@ const CONSTANTS = {
     },
     URL: {
         IMG: "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/",
-        SPLASH: "https://http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"
+        SPLASH: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/",
+        LOADING: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/"
     }
    
     

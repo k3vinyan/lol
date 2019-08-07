@@ -17,8 +17,10 @@ function getChampionsApi()  {
         })
 }
 
-function getChampionSlash() {
-    
+function getChampionSplashUrl(champ, count) {
+    let url = CONSTANTS.URL.SPLASH + champ + "_" + count + ".jpg";
+    return url;
+
 }
 
 function getPlayersApi() {
@@ -31,26 +33,10 @@ function getPlayersApi() {
         .catch(function(error) {
             console.log("Error in Player API: ", error)
         })
-    // const url = CONSTANTS.PLAYERJSON;
-    // const promise = new Promise( function(resolve, reject) {
-    //     const xhr = new XMLHttpRequest();
-    //     xhr.open('GET', url, true);
-    //     xhr.responseType = 'json';
-    //     xhr.onload = function() {
-    //         const status = xhr.status;
-
-    //         if(status === 200) {
-    //             console.log("get champions success!")
-    //             resolve(xhr.response)
-    //         } else {
-    //             reject("Error: " + status)
-    //         }
-    //     }
-
-    //     xhr.send()
-    // })
-
-    // return promise;
 }
 
-export { getChampionsApi, getPlayersApi };
+const allChampions = getChampionsApi();
+const allPlayers   = getPlayersApi();
+
+export { allChampions, allPlayers }
+
