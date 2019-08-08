@@ -6,12 +6,15 @@
 
 body {
     background: black;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div {
     border: 1px solid lightblue;
 }
 
+//grid layout
 #app {
     display: grid;
     width: 100%;
@@ -31,6 +34,7 @@ div {
 
   #champion-layout {
     height: 100%;
+    width: 100%;
     grid-row: 3/11;
   }
 
@@ -38,6 +42,43 @@ div {
     grid-row: 3/11;
   }
    
+}
+
+.show {
+  display: inline-block;
+  background: blue;
+}
+
+.hide {
+  display: none;
+  background: red;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .prev, .next {
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    top: 50%;
+  }
+
+  .prev {
+    
+    left: 0;
+  }
+
+  .next {
+    right: 0px;
+  }
+
+  .skin {
+    width: 150px;
+    height: auto;
+  }
 }
 
 

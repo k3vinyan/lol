@@ -1,16 +1,18 @@
 import { allChampions, allskinsCount } from '../api.js';
 import { CONSTANTS } from '../constants.js';
-import { SkinElement, getChampionSplashUrl } from '../helpers/helpers.js';
+import { SkinsCarousel } from '../helpers/helpers.js';
 
 //const champions = getChampionsApi();
 const mid = document.getElementById("champion-layout");
+const body = document.getElementsByTagName("BODY")[0];
 
 
 mid.addEventListener('click', (el)=> {
     el.preventDefault();
-    console.dir(el.target)
 
-    if(el.target.className === "champion-img") {
+    let elClassName = el.target.className;
+
+    if(elClassName === "champion-img") {
         const champName = el.target.parentNode.id;
         const player = document.getElementById("player-1");
         let champ = el.target.parentNode.id;
@@ -26,23 +28,103 @@ mid.addEventListener('click', (el)=> {
     }
 
     //lockin button
-    if(el.target.className === "button") {
+    if(elClassName === "button") {
         let champ = localStorage.getItem('selected');
 
         allskinsCount.then(function(response) {
-            let skincount = parseInt(response[champ]) + 1;
+            const skinCount = parseInt(response[champ]) + 1;
             mid.innerHTML = "";
-            for(let i = 0; i < skincount; i++) {
-                let url = getChampionSplashUrl(champ, i);
-                let div = new SkinElement('div', 'skin', url);
-                console.log(div)
-                mid.appendChild(div.el)
-            }
+
+
+            const skinWrapper = new SkinsCarousel('div', 'carousel');
+            skinWrapper.addSkins(champ, skinCount);
+            mid.appendChild(skinWrapper.el)
 
         })
     }
-    
+    let className = el.target.className;
+
+    toggelDisplay(elClassName);
+
+    // //next button
+    // if(elClassName === "next") {
+    //     let skins = document.getElementsByClassName("skin-wrapper");
+
+    //     for(let i = 0; i < skins.length; i++) {
+    //         if(skins[skins.length-1].classList.contains("show")) {
+    //             break;
+    //         }
+    //         if(skins[i].classList.contains("show")) {
+    //             skins[i].classList.remove("show");
+    //             skins[i].classList.add("hide");
+
+    //             skins[i+5].classList.remove("hide");
+    //             skins[i+5].classList.add("show");
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // //prev button
+    // if(elClassName === "prev") {
+    //     let skins = document.getElementsByClassName("skin-wrapper");
+    //     console.log("prev")
+    //     for(let i = 0; i < skins.length; i++) {
+    //         if(skins[0].classList.contains("show")) {
+    //             break;
+    //         }
+
+    //         if(skins[i].classList.contains("show")) {
+    //             console.log("loop")
+    //             skins[i-1].classList.remove("hide");
+    //             skins[i-1].classList.add("show");
+
+    //             skins[i+4].classList.remove("show");
+    //             skins[i+4].classList.add("hide");
+    //         }
+    //     }
+    // }
 })
 
+function toggelDisplay(className){
+    //next button
+    const skins = document.getElementsByClassName("skin-wrapper");
+
+    if(className === "next") {
+        
+        for(let i = 0; i < skins.length; i++) {
+            if(skins[skins.length-1].classList.contains("show")) {
+                break;
+            }
+            if(skins[i].classList.contains("show")) {
+                skins[i].classList.remove("show");
+                skins[i].classList.add("hide");
+
+                skins[i+5].classList.remove("hide");
+                skins[i+5].classList.add("show");
+                break;
+            }
+        }
+    }
+
+    //prev button
+    if(className === "prev") {
+        for(let i = 0; i < skins.length; i++) {
+            if(skins[0].classList.contains("show")) {
+                break;
+            }
+
+            if(skins[i].classList.contains("show")) {
+                skins[i-1].classList.remove("hide");
+                skins[i-1].classList.add("show");
+
+                console.log("hello")
+                skins[i+4].classList.remove("show");
+                skins[i+4].classList.add("hide");
+                break;
+            }
+        }
+    }
+}
 
 

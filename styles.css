@@ -4,7 +4,9 @@
   box-sizing: border-box; }
 
 body {
-  background: black; }
+  background: black;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 div {
   border: 1px solid lightblue; }
@@ -22,9 +24,35 @@ div {
     grid-row: 3/11; }
   #app #champion-layout {
     height: 100%;
+    width: 100%;
     grid-row: 3/11; }
   #app #right-section {
     grid-row: 3/11; }
+
+.show {
+  display: inline-block;
+  background: blue; }
+
+.hide {
+  display: none;
+  background: red; }
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  position: relative; }
+  .carousel .prev, .carousel .next {
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    top: 50%; }
+  .carousel .prev {
+    left: 0; }
+  .carousel .next {
+    right: 0px; }
+  .carousel .skin {
+    width: 150px;
+    height: auto; }
 
 .champions-wrapper {
   display: grid;

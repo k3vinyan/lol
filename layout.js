@@ -6,13 +6,13 @@ import { Element } from './helpers/helpers.js';
 
 
 const header            = new Element('div', 'section', 'header');
-const championLayout = new Element('div', 'section', 'champion-layout');
-const leftLayout       = new Element('div', 'section', 'left-section');
-const rightLayout      = new Element('div', 'section',  'right-section');
+const championLayout    = new Element('div', 'section', 'champion-layout');
+const leftLayout        = new Element('div', 'section', 'left-section');
+const rightLayout       = new Element('div', 'section',  'right-section');
 
-const SplashSection     = new Element('div', 'section', 'splash-section');
+const SplashLayout      = new Element('div', 'section', 'splash-section');
 const splashOption      = new Element('div', 'section', 'splash-option');
 
-export {header, championLayout, leftLayout, rightLayout};
+export {header, championLayout, leftLayout, rightLayout, SplashLayout };
 
 

@@ -58,20 +58,49 @@ ChampionElement.prototype.getChampionData = function() {
     return this.data;
 }
 
-function SkinElement(type, className, url) {
-    Element.call(this, type, className);
+function SkinsCarousel(type, className, id) {
+    Element.call(this, type, className, id);
+}
 
-    const img = new Element('img', 'img');
-    img.el.src = url;
-    this.el.appendChild(img.el)
+SkinsCarousel.prototype.addSkins = function(champion, count) {
+   let showSkin = 0;
+
+    for(let i = 0; i < count; i++) {
+        const wrapper = new Element('div', 'skin-wrapper')
+      
+        if(showSkin < 5) {
+            showSkin++;
+            wrapper.el.attributes['index'] = i;
+            //wrapper.el.style.display = "inline-block";
+            wrapper.el.classList.add("show")
+        } else {
+            wrapper.el.attributes['index'] = null;
+            //wrapper.el.style.display = "none";
+            wrapper.el.classList.add("hide")
+        }
+        const img = new Element('img', "skin", champion + "-skin-" + i);
+        img.el.src =  getChampionSplashUrl(champion, i);
+        wrapper.el.appendChild(img.el);
+        
+
+        this.el.appendChild(wrapper.el);
+    }
+
+    const previous = new Element('a', 'prev');
+    const next = new Element('a', 'next');
+
+    previous.el.innerHTML = "&#10094";
+    next.el.innerHTML = "&#10095";
+
+    this.el.appendChild(previous.el);
+    this.el.appendChild(next.el);
 }
 
 
 function getChampionSplashUrl(champ, count) {
     let url = CONSTANTS.URL.SPLASH + champ + "_" + count + ".jpg";
     return url;
-
 }
 
 
-export { Element, PlayerElement, ChampionElement, SkinElement, getChampionSplashUrl }
+export { Element, PlayerElement, ChampionElement, SkinsCarousel, getChampionSplashUrl }
