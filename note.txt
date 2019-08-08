@@ -1,2 +1,3 @@
 - maybe update skin count +1
 - create diffrent layout for each player selection part
+- need to reformat else/if statmetn in playerselection.js

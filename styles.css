@@ -23,19 +23,21 @@ div {
   #app #left-section {
     grid-row: 3/11; }
   #app #champion-layout {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
     height: 100%;
     width: 100%;
     grid-row: 3/11; }
   #app #right-section {
     grid-row: 3/11; }
+  #app .carousel {
+    grid-row: 3/4; }
 
 .show {
-  display: inline-block;
-  background: blue; }
+  display: inline-block; }
 
 .hide {
-  display: none;
-  background: red; }
+  display: none; }
 
 .carousel {
   display: flex;
