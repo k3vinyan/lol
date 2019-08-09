@@ -4,16 +4,20 @@
   box-sizing: border-box; }
 
 body {
-  background: black;
+  text-align: center;
+  margin: auto; }
+
+.background {
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background: blue; }
 
 div {
   border: 1px solid lightblue; }
 
 #app {
   display: grid;
-  width: 100%;
+  width: 800px;
   height: 100vh;
   grid-template-columns: 3fr 5fr 3fr;
   grid-template-rows: repeat(10, 1fr); }
@@ -23,7 +27,7 @@ div {
   #app #left-section {
     grid-row: 3/11; }
   #app #champion-layout {
-    display: grid;
+    display: none;
     grid-template-rows: 3fr 1fr;
     height: 100%;
     width: 100%;
