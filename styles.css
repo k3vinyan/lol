@@ -27,7 +27,6 @@ div {
   #app #left-section {
     grid-row: 3/11; }
   #app #champion-layout {
-    display: none;
     grid-template-rows: 3fr 1fr;
     height: 100%;
     width: 100%;
