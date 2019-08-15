@@ -1,8 +1,8 @@
 import { allChampions, allskinsCount } from '../api.js';
 import { CONSTANTS } from '../constants.js';
 import { SkinsCarousel } from '../helpers/helpers.js';
+import { selectChamp } from './playerlogic.js';
 
-//const champions = getChampionsApi();
 const mid = document.getElementById("champion-layout");
 const body = document.getElementsByTagName("BODY")[0];
 
@@ -12,29 +12,16 @@ mid.addEventListener('click', (el)=> {
     let elClassName = el.target.className;
 
     let target = el.target;
-    
-    console.log(target)
 
     if(target.className === "skin") {
-        console.log(target.src)
         body.style.background = "url(" + target.src + ")";
         body.style.backgroundRepeat = "no-repeat";
         body.style.backgroundPositionX = "-300px";
     }
 
     if(elClassName === "champion-img") {
-        const champName = el.target.parentNode.id;
-        const player = document.getElementById("player-1");
-        let champ = el.target.parentNode.id;
-        localStorage.setItem('selected', champ);
-    
-        allChampions.then( response => {
-            const champions = response;
-            
-            const champ = champions[champName]
-            const imgurl = CONSTANTS.URL.IMG + champ.image.full;
-            player.firstChild.src = imgurl;
-        })
+       selectChamp(el);
+        //should use id instead of classname ----fix later
     }else if(elClassName === "button") {
         let champ = localStorage.getItem('selected');
 
@@ -90,5 +77,4 @@ function toggelDisplay(className){
         }
     }
 }
-
 

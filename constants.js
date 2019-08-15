@@ -9,20 +9,17 @@ const CONSTANTS = {
         SPLASH: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/",
         LOADING: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/"
     },
-    HEADER:
-        {
-            MESSAGE: {
-                PRESELECT: "CHOOSE YOUR CHAMPION!",
-                SELECT: "CHOOSE YOUR LOADOUT!",
-                START: "LET THE BATTLE BEGIN!"
-
-
-            },
-            COUNT: 5
-
-        }
-   
-    
+    HEADER: {
+        MESSAGE: {
+            PRESELECT: "CHOOSE YOUR CHAMPION!",
+            SELECT: "CHOOSE YOUR LOADOUT!",
+            START: "LET THE BATTLE BEGIN!"
+        },
+        COUNT: 5
+    },
+    GAMELOGIC: {
+        DEFAULTCHAMP: 'Aatrox'
+    }
 }
 
 export { CONSTANTS };
