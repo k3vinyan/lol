@@ -11,8 +11,15 @@ const CONSTANTS = {
     },
     HEADER:
         {
-            CYC: "CHOOSE YOUR CHAMPION!",
+            MESSAGE: {
+                PRESELECT: "CHOOSE YOUR CHAMPION!",
+                SELECT: "CHOOSE YOUR LOADOUT!",
+                START: "LET THE BATTLE BEGIN!"
+
+
+            },
             COUNT: 5
+
         }
    
     
