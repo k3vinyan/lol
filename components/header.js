@@ -1,12 +1,20 @@
 import { Element } from '../helpers/helpers.js';
-import { header } from '../layout.js';
-
-const leftSection = new Element('div', 'col', 'left-header');
-const midSection = new Element('div', 'col', 'mid-header');
-const rightSection = new Element('div', 'col', 'right-header');
-
-header.addChild(leftSection);
-header.addChild(midSection);
-header.addChild(rightSection);
+import { CONSTANTS } from '../constants.js';
 
 
+const message = CONSTANTS.HEADER.CYC;
+const count = CONSTANTS.HEADER.COUNT;
+
+const header = new Element('div', 'section', 'header');
+const messageDiv = new Element('div', null, 'header-message');
+const timeDiv = new Element('div', null, 'header-time');
+
+messageDiv.addParagraph(message);
+timeDiv.addParagraph(count);
+
+
+
+header.addChild(messageDiv);
+header.addChild(timeDiv);
+
+export { header };

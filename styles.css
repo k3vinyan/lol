@@ -3,38 +3,54 @@
   margin: 0;
   box-sizing: border-box; }
 
-body {
-  text-align: center;
-  margin: auto; }
-
-.background {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: blue; }
-
 div {
   border: 1px solid lightblue; }
 
+body {
+  text-align: center;
+  width: 100vh;
+  height: 100vh;
+  margin: auto; }
+
 #app {
   display: grid;
-  width: 800px;
-  height: 100vh;
-  grid-template-columns: 3fr 5fr 3fr;
-  grid-template-rows: repeat(10, 1fr); }
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 9fr 3fr; }
   #app #header {
-    grid-column: 1/4;
-    grid-row: 1/3; }
+    grid-column: 1/5; }
   #app #left-section {
-    grid-row: 3/11; }
+    grid-row: 2/3;
+    display: flex;
+    align-items: center; }
+    #app #left-section .player-img {
+      width: 120px;
+      height: 120px; }
   #app #champion-layout {
-    grid-template-rows: 3fr 1fr;
-    height: 100%;
-    width: 100%;
-    grid-row: 3/11; }
+    grid-column: 2/3;
+    grid-row: 2/4;
+    height: 800px; }
+    #app #champion-layout .champions-wrapper {
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      overflow-y: scroll; }
   #app #right-section {
-    grid-row: 3/11; }
-  #app .carousel {
-    grid-row: 3/4; }
+    grid-column: 3/4;
+    grid-row: 2/4; }
+
+#header {
+  display: grid; }
+  #header #header-message {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #header #header-time {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .show {
   display: inline-block; }
@@ -58,19 +74,3 @@ div {
   .carousel .skin {
     width: 150px;
     height: auto; }
-
-.champions-wrapper {
-  display: grid;
-  height: 80%;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  overflow-y: scroll; }
-
-.lockin-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20%; }
-  .lockin-wrapper #lockin-button {
-    width: 125px;
-    height: 75px; }

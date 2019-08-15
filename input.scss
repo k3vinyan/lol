@@ -1,63 +1,139 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+
+div {
+  border: 1px solid lightblue;
+}
+
 body {
   text-align: center;
+  width: 100vh;
+  height: 100vh;
   margin: auto;
 }
 
-.background {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: blue;
-}
-
-div {
-    border: 1px solid lightblue;
-}
-
-//grid layout
 #app {
-  // background: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg");
-  // background-size: 175% auto;
-  // background-repeat: no-repeat;
-  // background-position-x: -950px;
-  
   display: grid;
-  width: 800px;
-  height: 100vh;
-  grid-template-columns: 3fr 5fr 3fr;
-  grid-template-rows: repeat(10, 1fr);
-
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 9fr 3fr;
 
   #header {
-    grid-column: 1/4;
-    grid-row: 1/3;
+    grid-column: 1/5;
   }
 
   #left-section {
-    grid-row: 3/11;  
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+
+
+    .player-img {
+      width: 120px;
+      height: 120px;
+    }
   }
 
   #champion-layout {
-    grid-template-rows: 3fr 1fr;
-    height: 100%;
-    width: 100%;
-    grid-row: 3/11;
+    grid-column: 2/3;
+    grid-row: 2/4;
+    height: 800px;
+    
+    .champions-wrapper {
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      overflow-y: scroll;
+    }
   }
 
   #right-section {
-    grid-row: 3/11;
+    grid-column: 3/4;
+    grid-row: 2/4;
+  }
+}
+
+
+#header{
+  display: grid;
+  
+
+  #header-message{
+    @include center();
   }
 
-  .carousel {
-    grid-row: 3/4;
+  #header-time{
+    @include center();
   }
-   
 }
+
+
+// body {
+//   text-align: center;
+//   margin: auto;
+// }
+
+// .background {
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background: blue;
+// }
+
+// div {
+//     border: 1px solid lightblue;
+// }
+
+// //grid layout
+// #app {
+//   // background: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg");
+//   // background-size: 175% auto;
+//   // background-repeat: no-repeat;
+//   // background-position-x: -950px;
+  
+//   display: grid;
+//   width: 800px;
+//   height: 100vh;
+//   grid-template-columns: 3fr 5fr 3fr;
+//   grid-template-rows: repeat(10, 1fr);
+
+
+//   #header {
+//     grid-column: 1/4;
+//     grid-row: 1/3;
+//   }
+
+//   #left-section {
+//     grid-row: 3/11;  
+//   }
+
+//   #champion-layout {
+//     grid-template-rows: 3fr 1fr;
+//     height: 100%;
+//     width: 100%;
+//     grid-row: 3/11;
+//   }
+
+//   #right-section {
+//     grid-row: 3/11;
+//   }
+
+//   .carousel {
+//     grid-row: 3/4;
+//   }
+   
+// }
 
 .show {
   display: inline-block;
@@ -95,22 +171,22 @@ div {
 }
 
 
-.champions-wrapper {
-    display: grid;
-    height: 80%;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    overflow-y: scroll;
-}
+// .champions-wrapper {
+//     display: grid;
+//     height: 80%;
+//     grid-template-columns: repeat(8, 1fr);
+//     grid-template-rows: repeat(10, 1fr);
+//     overflow-y: scroll;
+// }
 
-.lockin-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20%;
+// .lockin-wrapper {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 20%;
     
-    #lockin-button {
-        width: 125px;
-        height: 75px;
-    }
-}
+//     #lockin-button {
+//         width: 125px;
+//         height: 75px;
+//     }
+// }

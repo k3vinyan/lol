@@ -2,14 +2,18 @@ import  { CONSTANTS } from '../constants.js';
 
 function Element(type, className, id) {
     const el = document.createElement(type);
-    el.classList.add(className);
+    
+    if(className != null) {
+        el.classList.add(className)
+        this.className = className;
+    }
 
     if(typeof id != 'undefined') {
         el.id = id;
     }
 
     this.el = el;
-    this.className = className;
+    
 }
 
 
@@ -22,6 +26,14 @@ Element.prototype.addChild = function(child) {
     this.children.push(child)
 }
 
+
+Element.prototype.addParagraph = function(str) {
+    const p = document.createElement('p');
+    p.innerHTML = str;
+    
+    this.el.appendChild(p)
+}
+
 function PlayerElement(type, className, id) {
     Element.call(this, type, className, id);
 }
@@ -31,11 +43,12 @@ PlayerElement.prototype.constructor = PlayerElement;
 
 PlayerElement.prototype.addPlayerData = function(data) {
     const img = new Element('img', 'player-img');
-    const p = new Element('p', 'player-para');
-    img.el.src = data.img;
-    p.el.innerHTML = data.name;
+    const info = new Element('p', 'player-info');
+    const name = new Element('p', 'player-name');
+    
     this.el.appendChild(img.el);
-    this.el.appendChild(img.el);
+    this.el.appendChild(info.el);
+    this.el.appendChild(name.el);
 }
 
 function ChampionElement(type, className, id) {
@@ -71,11 +84,9 @@ SkinsCarousel.prototype.addSkins = function(champion, count) {
         if(showSkin < 5) {
             showSkin++;
             wrapper.el.attributes['index'] = i;
-            //wrapper.el.style.display = "inline-block";
             wrapper.el.classList.add("show")
         } else {
             wrapper.el.attributes['index'] = null;
-            //wrapper.el.style.display = "none";
             wrapper.el.classList.add("hide")
         }
         const img = new Element('img', "skin", champion + "-skin-" + i);

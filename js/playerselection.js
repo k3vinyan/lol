@@ -20,7 +20,6 @@ mid.addEventListener('click', (el)=> {
         body.style.background = "url(" + target.src + ")";
         body.style.backgroundRepeat = "no-repeat";
         body.style.backgroundPositionX = "-300px";
-      //  body.style.backgroundSize = "cover";
     }
 
     if(elClassName === "champion-img") {

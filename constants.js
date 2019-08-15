@@ -8,7 +8,12 @@ const CONSTANTS = {
         IMG: "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/",
         SPLASH: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/",
         LOADING: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/"
-    }
+    },
+    HEADER:
+        {
+            CYC: "CHOOSE YOUR CHAMPION!",
+            COUNT: 5
+        }
    
     
 }
