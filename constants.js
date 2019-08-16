@@ -27,7 +27,7 @@ const CONSTANTS = {
         }
     },
     GAMELOGIC: {
-        DEFAULTCHAMP: 'Aatrox'
+        DEFAULTCHAMP: 'Ahri'
     }
 }
 

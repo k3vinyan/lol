@@ -1,29 +1,26 @@
 import { CONSTANTS } from '../constants.js';
 import { allskinsCount } from '../api.js';
+import { SkinsCarousel } from '../helpers/helpers.js';
 
 
 //select champions for player if times runs out
 function autoChampionSelect() {
-    const randomNum = Math.floor(Math.random() * 134)
-    const champions = ((document.getElementsByClassName("champions-wrapper")));
-
-    if(champions === undefined) {
-        const champion = document.getElementById(CONSTANTS.GAMELOGIC.DEFAULTCHAMP)
-
-    }
-
-    console.log(champions)
-    console.log(champions[randomNum])
-    console.log(randomNum)
+    let champion = CONSTANTS.GAMELOGIC.DEFAULTCHAMP
+    getChampSkins(champion);
+    return champion;
 }
 
-function getChampSkins() {
+//get skins for selected champion
+function getChampSkins(str) {
+    const champLayout = document.getElementById('champion-layout');
+    const champ = str;
+    
     allskinsCount.then(function(response) {
         const skinCount = parseInt(response[champ]) + 1;
-        mid.innerHTML = "";
+        champLayout.innerHTML = "";
         const skinWrapper = new SkinsCarousel('div', 'carousel');
         skinWrapper.addSkins(champ, skinCount);
-        mid.appendChild(skinWrapper.el)
+        champLayout.appendChild(skinWrapper.el)
 
     })
 }

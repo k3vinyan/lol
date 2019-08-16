@@ -1,17 +1,22 @@
 import { autoChampionSelect } from './gamelogic.js';
+import { timerEvent } from '../eventListeners/eventListeners.js';
 import { CONSTANTS } from '../constants.js';
+
+
 
 
 function timer(timeout) {
     const id = self.setInterval( function() {
-        const timeHeader = document.getElementById(CONSTANTS.HEADER.ID.TIMER);
-        let value = timeHeader.children[0].innerHTML;
+        const header = document.getElementById('header');
+        let value = header.children[1].children[0].innerHTML;
+        
     
         if(parseInt(value) === 0) {
+            header.dispatchEvent(timerEvent);
             return;
         }
         value--;
-        timeHeader.children[0].innerHTML = value;
+        header.children[1].children[0].innerHTML = value;
     }, 1000)
 
     setTimeout(function(){
@@ -21,6 +26,11 @@ function timer(timeout) {
 }
 
 timer(CONSTANTS.HEADER.TIMER.MS)
+
+
+
+
+
 
 
 const Game = {

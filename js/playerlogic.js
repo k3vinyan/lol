@@ -1,8 +1,8 @@
 import { allChampions } from '../api.js';
 import { CONSTANTS } from '../constants.js';
 
-function selectChamp(el){
-    const champName = el.target.parentNode.id;
+function selectChamp(champName){
+
     const player = document.getElementById("player-1");
     localStorage.setItem('selected', champName);
 
