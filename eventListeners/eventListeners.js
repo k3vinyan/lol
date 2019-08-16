@@ -1,21 +1,28 @@
-import { autoChampionSelect, selectChamp } from '../js/gamelogic.js';
+import { autoChampionSelect, selectChamp, getChampSkins } from '../js/gamelogic.js';
 
 const header = document.getElementById('header');
 const app = document.getElementById('app');
 
 //listener when choose your champion countdown reach zero
-header.addEventListener('timerEqualZero', function(e){
-   const champ = autoChampionSelect()
-   selectChamp(champ)
+header.addEventListener('playerSelect', function(e){
+
+    if(e.detail === 'time') {
+        const champ = autoChampionSelect();
+        selectChamp(champ)
+    }
+
+    if(e.detail == 'player') {
+        console.log("player pllayer")
+    }
 }, {once: true})
 
 
 app.addEventListener('click', (el)=> {
     el.preventDefault();
 
-    let elClassName = el.target.className;
-
-    let target = el.target;
+    const target = el.target;
+    const elClassName = el.target.className;
+    const champ = el.target.parentNode.id;
 
     if(target.className === "skin") {
         body.style.background = "url(" + target.src + ")";
@@ -24,9 +31,12 @@ app.addEventListener('click', (el)=> {
     }
 
     if(elClassName === "champion-img") {
-       selectChamp(el);
+       selectChamp(champ);
     }else if(elClassName === "button") {
-        let champ = localStorage.getItem('selected');  
+        let champion = localStorage.getItem('selected');
+        getChampSkins(champion); 
+        window.localStorage.setItem('lockin', true);
+        header.dispatchEvent(selectEvent); 
     } else {
         toggelDisplay(elClassName);
     }
@@ -74,6 +84,7 @@ function toggelDisplay(className){
 }
 
 //emitters
-const timerEvent = new Event('timerEqualZero');
-export { timerEvent }
+const timerEvent = new CustomEvent('playerSelect', {detail: 'time'});
+const selectEvent = new CustomEvent('playerSelect', {detail: 'player'});
+export { timerEvent, selectEvent }
 

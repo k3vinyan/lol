@@ -22,8 +22,8 @@ const CONSTANTS = {
             TIMER: 'header-time'
         },
         TIMER : {
-            COUNT: 5,
-            MS: 6000
+            COUNT: 10,
+            MS: 11000
         }
     },
     GAMELOGIC: {
