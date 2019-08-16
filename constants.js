@@ -15,7 +15,16 @@ const CONSTANTS = {
             SELECT: "CHOOSE YOUR LOADOUT!",
             START: "LET THE BATTLE BEGIN!"
         },
-        COUNT: 5
+        CLASSNAME: {
+            
+        },
+        ID: {
+            TIMER: 'header-time'
+        },
+        TIMER : {
+            COUNT: 5,
+            MS: 6000
+        }
     },
     GAMELOGIC: {
         DEFAULTCHAMP: 'Aatrox'
