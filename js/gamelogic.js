@@ -1,5 +1,5 @@
 import { CONSTANTS } from '../constants.js';
-import { allskinsCount } from '../api.js';
+import { allskinsCount, allChampions } from '../api.js';
 import { SkinsCarousel } from '../helpers/helpers.js';
 
 
@@ -25,6 +25,23 @@ function getChampSkins(str) {
     })
 }
 
+//insert champion onto player indicator
+function selectChamp(champName){
 
-export {autoChampionSelect, getChampSkins }
+    const player = document.getElementById("player-1");
+    localStorage.setItem('selected', champName);
+
+    allChampions.then( response => {
+        const champions = response;
+        
+        const champ = champions[champName]
+        const imgurl = CONSTANTS.URL.IMG + champ.image.full;
+        player.firstChild.src = imgurl;
+    })
+}
+
+
+
+
+export {autoChampionSelect, getChampSkins, selectChamp }
 

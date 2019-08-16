@@ -1,5 +1,4 @@
-import { autoChampionSelect } from '../js/gamelogic.js';
-import { selectChamp } from '../js/playerlogic.js';
+import { autoChampionSelect, selectChamp } from '../js/gamelogic.js';
 
 const header = document.getElementById('header');
 const app = document.getElementById('app');
