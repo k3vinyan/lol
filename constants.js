@@ -12,7 +12,7 @@ const CONSTANTS = {
     HEADER: {
         MESSAGE: {
             PRESELECT: "CHOOSE YOUR CHAMPION!",
-            SELECT: "CHOOSE YOUR LOADOUT!",
+            SELECT: "CHOOSE YOUR SKIN!",
             START: "LET THE BATTLE BEGIN!"
         },
         CLASSNAME: {
@@ -22,8 +22,11 @@ const CONSTANTS = {
             TIMER: 'header-time'
         },
         TIMER : {
-            COUNT: 10,
-            MS: 11000
+            PHASE1: 10,
+            PHASE2: 20,
+            PHASE3: 30,
+            TIMEOUT1: 11000,
+            TIMEOUT1: 20000
         }
     },
     GAMELOGIC: {

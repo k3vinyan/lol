@@ -76,10 +76,11 @@ function SkinsCarousel(type, className, id) {
 }
 
 SkinsCarousel.prototype.addSkins = function(champion, count) {
-   let showSkin = 0;
+    let showSkin = 0;
+    this.defaultSkin = getChampionSplashUrl(champion, 0);
 
     for(let i = 0; i < count; i++) {
-        const wrapper = new Element('div', 'skin-wrapper')
+        const wrapper = new Element('div', 'skin-wrapper') 
       
         if(showSkin < 5) {
             showSkin++;
@@ -105,6 +106,11 @@ SkinsCarousel.prototype.addSkins = function(champion, count) {
 
     this.el.appendChild(previous.el);
     this.el.appendChild(next.el);
+
+
+    // const p = new Promise(function(resolve, reject) {
+        
+    // })
 }
 
 

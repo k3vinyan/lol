@@ -1,42 +1,45 @@
-import { autoChampionSelect } from './gamelogic.js';
 import { timerEvent } from '../eventListeners/eventListeners.js';
 import { CONSTANTS } from '../constants.js';
 
 window.localStorage.setItem('selected', undefined)
 window.localStorage.setItem('lockin', false);
+window.localStorage.setItem('phaseOneEnd', false)
 
-console.log(window.localStorage)
-
-function timer(timeout) {
+function timer(count) {
+    const ms = setTimeOutCounter(count)
     const id = self.setInterval( function() {
-        const header = document.getElementById('header');
-        let value = header.children[1].children[0].innerHTML;
+        
         const selected = window.localStorage.getItem('selected');
         const lockin = window.localStorage.getItem('lockin');
-        if(selected !== "undefined" &&  lockin === true) {
-            console.log("cat")
+        const phaseOneEnd = window.localStorage.getItem('phaseOneEnd');
+
+        //End Phase1 Timer and Start Phase2 countdown
+        if(selected !== "undefined" &&  lockin === "true" && phaseOneEnd === "false") {
+            window.localStorage.setItem('phaseOneEnd', true)
+            timer(CONSTANTS.HEADER.TIMER.PHASE2)
+            return;
         }
 
-        
-    
-        if(parseInt(value) === 0) {
+        if(parseInt(count) === 0) {
             header.dispatchEvent(timerEvent);
             return;
         }
-        value--;
-        header.children[1].children[0].innerHTML = value;
+        count--;
+        header.children[1].children[0].innerHTML = count;
     }, 1000)
 
     setTimeout(function(){
         window.clearInterval(id)
-    }, timeout)
+    }, ms)
     
 }
 
-timer(CONSTANTS.HEADER.TIMER.MS)
+timer(CONSTANTS.HEADER.TIMER.PHASE1)
 
-const Game = {
-    init: function() {
 
-    }
+//helpers
+
+function setTimeOutCounter(int) {
+    return ((int*1000) + 1000);
+   
 }

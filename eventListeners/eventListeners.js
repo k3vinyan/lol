@@ -1,18 +1,22 @@
-import { autoChampionSelect, selectChamp, getChampSkins } from '../js/gamelogic.js';
+import { autoChampionSelect, selectChamp, getChampSkins, changeHeaderMessage } from '../js/gamelogic.js';
 
 const header = document.getElementById('header');
 const app = document.getElementById('app');
 
-//listener when choose your champion countdown reach zero
+console.log(window.localStorage)
+
+
 header.addEventListener('playerSelect', function(e){
 
+    //when phaseone reaches zero, champion is autoselected for player
     if(e.detail === 'time') {
         const champ = autoChampionSelect();
-        selectChamp(champ)
+        changeHeaderMessage('PHASE1END')
+        selectChamp(champ);
     }
 
     if(e.detail == 'player') {
-        console.log("player pllayer")
+        window.localStorage.setItem('lockin', true)
     }
 }, {once: true})
 
@@ -25,15 +29,17 @@ app.addEventListener('click', (el)=> {
     const champ = el.target.parentNode.id;
 
     if(target.className === "skin") {
-        body.style.background = "url(" + target.src + ")";
-        body.style.backgroundRepeat = "no-repeat";
-        body.style.backgroundPositionX = "-300px";
+        console.log(target)
+        
+        app.style.background = "url(" + target.src + ")";
+        app.style.backgroundRepeat = "no-repeat";
     }
 
     if(elClassName === "champion-img") {
        selectChamp(champ);
     }else if(elClassName === "button") {
         let champion = localStorage.getItem('selected');
+        changeHeaderMessage('PHASE1END');
         getChampSkins(champion); 
         window.localStorage.setItem('lockin', true);
         header.dispatchEvent(selectEvent); 
