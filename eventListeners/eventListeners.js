@@ -29,8 +29,7 @@ app.addEventListener('click', (el)=> {
     const champ = el.target.parentNode.id;
 
     if(target.className === "skin") {
-        console.log(target)
-        
+
         app.style.background = "url(" + target.src + ")";
         app.style.backgroundRepeat = "no-repeat";
     }

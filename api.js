@@ -1,7 +1,8 @@
 import { CONSTANTS } from './constants.js';
 
+//need to refactor getFunction
 function getChampionsApi()  {
-    const url = CONSTANTS.JSON.CHAMPIONJSON;
+    var url = CONSTANTS.JSON.CHAMPIONJSON;
  
     return fetch(url)
         .then(function(response) {
@@ -18,7 +19,7 @@ function getChampionsApi()  {
 }
 
 function getPlayersApi() {
-    const url = CONSTANTS.JSON.PLAYERJSON;
+    var url = CONSTANTS.JSON.PLAYERJSON;
 
     return fetch(url)
         .then(function(response) {
@@ -30,7 +31,7 @@ function getPlayersApi() {
 }
 
 function getChampionSkinCount() {
-    const json = CONSTANTS.JSON.CHAMPIONSKINCOUNTJSON;
+    var json = CONSTANTS.JSON.CHAMPIONSKINCOUNTJSON;
 
     return fetch(json)
         .then(function(response) {
@@ -41,9 +42,41 @@ function getChampionSkinCount() {
         })
 }
 
-const allChampions = getChampionsApi();
-const allPlayers   = getPlayersApi();
-const allskinsCount = getChampionSkinCount();
+var Api = (function(){
 
-export { allChampions, allPlayers, allskinsCount }
+    var allChampions = getChampionsApi();
+    var allPlayers   = getPlayersApi();
+    var allSkinCount = getChampionSkinCount();
+
+    var getChampions = function(str) {
+        allChampions.then(function(response) {
+            return response[str]
+        })
+    }
+
+    var getPlayers = function(str) {
+        allPlayers.then(function(response) {
+            return response[str]
+        })
+    }
+
+    var getSkinCount = function(str) {
+        allSkinCount.then(function(response) {
+            return response[str]
+        })
+    }
+
+
+
+    return {
+        getChampions: getChampions,
+        getPlayers: getPlayers,
+        getSkinCount: getSkinCount
+    }
+
+}())
+
+
+
+export { Api }
 

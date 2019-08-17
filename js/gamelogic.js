@@ -19,7 +19,6 @@ function getChampSkins(str) {
         const skinCount = parseInt(response[champ]) + 1;
         champLayout.innerHTML = "";
         const skinWrapper = new SkinsCarousel('div', 'carousel');
-        console.log(skinWrapper)
         skinWrapper.addSkins(champ, skinCount);
         champLayout.appendChild(skinWrapper.el)
 
